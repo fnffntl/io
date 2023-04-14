@@ -1,5 +1,7 @@
 package sample09;
 
+import java.util.List;
+
 import util.KeyboardReader;
 
 public class MallApplication {
@@ -63,14 +65,32 @@ public class MallApplication {
 		System.out.println("<< 모든 상품 조회 >>");
 		System.out.println("### 모든 상품 목록을 확인하세요");
 		
+		List<Product> productList = service.getAllProducts();
 		System.out.println("----------------------------------------------");
-		
+		System.out.println("번호\t상품이름\t제조사\t가격\t재고수량");
 		System.out.println("----------------------------------------------");
+		for (Product product : productList) {
+			System.out.print(product.getNo() + "\t");
+			System.out.print(product.getName() + "\t");
+			System.out.print(product.getMaker() + "\t");
+			System.out.print(product.getPrice() + "\t");
+			System.out.print(product.getStock() + "\t");
+			System.out.println();
+		}
 	}
 	
 	private void 로그인() {
 		System.out.println("<< 로그인 >>");
+		System.out.println("아이디와 비밀번호를 입력하세요.");
 		
+		System.out.print("### 아이디 입력: ");
+		String id = reader.readString();
+		System.out.print("### 비밀번호 입력: ");
+		String password = reader.readString();
+		
+		User user = service.login(id, password);
+		loginedUser = user;
+		System.out.println("### 로그인이 완료되었습니다.");
 	}
 	
 	private void 주문하기() {

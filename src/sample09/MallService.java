@@ -21,5 +21,36 @@ public class MallService {
 		return productRepo.getProducts();
 	}
 	
+	/*
+	 * 아이디, 비밀번호를 전달받아서 사용자를 인증하고, 인증된 사용자정보를 반환한다.
+	 * 	반환타입: User
+	 * 	메소드이름: login
+	 * 	매개변수: String id, String password
+	 * 	예외: RuntimeException, 사용자정보가 없거나 비밀번호가 일치하지 않는 경우
+	 */
+	public User login(String id, String password) {
+		User user = userRepo.getUserById(id);
+		if (user == null) {
+			throw new RuntimeException("["+id+"] 사용자정보가 존재하지 않습니다.");
+		}
+		if (!user.getPassword().equals(password)) {
+			throw new RuntimeException("비밀번호가 일치하지 않습니다.");
+		}
+		
+		return user;
+	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

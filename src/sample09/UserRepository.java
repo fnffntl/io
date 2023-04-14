@@ -28,4 +28,51 @@ public class UserRepository {
 			throw new RuntimeException("users.txt 파일 읽기 오류", ex);
 		}
 	}
+	
+	/*
+	 * 아이디를 전달받아서 아이디에 해당하는 사용자정보를 반환한다.
+	 * 	반환타입: User
+	 * 	메소드이름: getUserById
+	 * 	매개변수: String id
+	 */
+	
+	public User getUserById (String id) {
+		for (User user : users) {
+			if (user.getId().equals(id)) {
+				return user;
+			}
+		} return null;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
