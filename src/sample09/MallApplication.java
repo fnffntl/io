@@ -24,6 +24,7 @@ public class MallApplication {
 			System.out.println("----------------------------------------------");
 			System.out.println("1.상품조회  2.주문하기  3.주문내역  4.내정보  0.종료");
 			System.out.println("----------------------------------------------");
+			System.out.println("["+loginedUser.getName()+"]님 환영합니다.");
 		}
 		System.out.println();
 		
