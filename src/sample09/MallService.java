@@ -18,8 +18,7 @@ public class MallService {
 	 * 	매개변수: 없음
 	 */
 	public List<Product> getAllProducts(){
-		List<Product> productList = productRepo.getProducts();
-		return productList;
+		return productRepo.getProducts();
 	}
 	
 	
